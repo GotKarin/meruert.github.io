@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 20px;
+        }
+        .collage {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .collage img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .text-section {
+            margin-left: 20px;
+        }
+        textarea {
+            width: 400px;
+            height: 200px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .save-button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .save-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Happy Birthday, Sister!</h1>
+    <div class="container">
+        <div class="collage">
+            <img src="photo1.jpg" alt="Photo 1">
+            <img src="photo2.jpg" alt="Photo 2">
+            <img src="photo3.jpg" alt="Photo 3">
+            <img src="photo4.jpg" alt="Photo 4">
+        </div>
+        <div class="text-section">
+            <textarea id="message" placeholder="Write your birthday wishes here..."></textarea>
+            <button class="save-button" onclick="saveText()">Save</button>
+        </div>
+    </div>
+    <script>
+        function saveText() {
+            const message = document.getElementById('message').value;
+            if (message.trim() !== "") {
+                localStorage.setItem('birthdayMessage', message);
+                alert('Your message has been saved!');
+            } else {
+                alert('Please write a message before saving.');
+            }
+        }
+
+        // Load saved message on page load
+        window.onload = () => {
+            const savedMessage = localStorage.getItem('birthdayMessage');
+            if (savedMessage) {
+                document.getElementById('message').value = savedMessage;
+            }
+        };
+    </script>
+</body>
+</html>
