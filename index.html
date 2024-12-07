@@ -13,42 +13,105 @@
             justify-content: center;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background: linear-gradient(135deg, #f9c5d1, #fbc8d4);
+            overflow-x: hidden;
+        }
+        h1 {
+            font-size: 36px;
+            color: #ff4081;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         .container {
             display: flex;
-            flex-direction: row;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             margin: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
         }
         .collage {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
+            margin-bottom: 20px;
         }
         .collage img {
-            width: 250px;
-            height: 250px;
+            width: 150px;
+            height: 150px;
             object-fit: cover;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border: 4px solid #ff80ab;
+            transition: transform 0.3s ease;
+        }
+        .collage img:hover {
+            transform: scale(1.05);
         }
         .text-section {
-            margin-left: 20px;
-            width: 400px;
-            font-size: 18px;
-            line-height: 1.5;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: center;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+        }
+        .text-section p {
+            margin: 10px 0;
+        }
+        .emoji {
+            font-size: 24px;
+            margin: 0 5px;
+        }
+        .decorations {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .decorations span {
+            position: absolute;
+            display: block;
+            width: 10px;
+            height: 10px;
+            background: #ff4081;
+            animation: confetti 5s linear infinite;
+        }
+        @keyframes confetti {
+            from {
+                transform: translateY(-50px);
+                opacity: 1;
+            }
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+        .decorations span:nth-child(odd) {
+            background: #ff80ab;
+        }
+        @media (max-width: 768px) {
+            .collage {
+                grid-template-columns: 1fr;
+            }
+            .collage img {
+                width: 120px;
+                height: 120px;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Happy Birthday, Sister!</h1>
+    <h1>🎉 Happy Birthday, Sister! 🎉</h1>
     <div class="container">
         <div class="collage">
             <img src="photo1.jpg" alt="Photo 1">
@@ -57,9 +120,21 @@
             <img src="photo4.jpg" alt="Photo 4">
         </div>
         <div class="text-section">
-            Туылған күніңмен! Сізге денсаулық, рухани амандық және қаржылық молшылық тілеймін. Тілектеріңіз орындалып, мақсаттарыңыз орындалып, мәселелеріңіз шешілсін! Туылған күніңмен!
+            <p>🎂 Туылған күніңмен! Сізге денсаулық, рухани амандық және қаржылық молшылық тілеймін. 🥳</p>
+            <p>✨ Тілектеріңіз орындалып, мақсаттарыңыз орындалып, мәселелеріңіз шешілсін! ✨</p>
+            <p>🎁 Туылған күніңмен! 🎈</p>
         </div>
+    </div>
+    <div class="decorations">
+        <span style="left: 10%; animation-duration: 3s; animation-delay: 0s;"></span>
+        <span style="left: 20%; animation-duration: 4s; animation-delay: 1s;"></span>
+        <span style="left: 30%; animation-duration: 3.5s; animation-delay: 0.5s;"></span>
+        <span style="left: 40%; animation-duration: 4.2s; animation-delay: 1.2s;"></span>
+        <span style="left: 50%; animation-duration: 5s; animation-delay: 0.7s;"></span>
+        <span style="left: 60%; animation-duration: 3.8s; animation-delay: 1.1s;"></span>
+        <span style="left: 70%; animation-duration: 4.5s; animation-delay: 0.8s;"></span>
+        <span style="left: 80%; animation-duration: 3.2s; animation-delay: 1.5s;"></span>
+        <span style="left: 90%; animation-duration: 4s; animation-delay: 0.3s;"></span>
     </div>
 </body>
 </html>
-
